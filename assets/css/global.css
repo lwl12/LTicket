@@ -1,0 +1,137 @@
+body {
+	padding-bottom: 64px;
+}
+
+.admin-main {
+	padding-bottom: 20px;
+}
+
+.fly-content {
+	background: #fff;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 1px 11px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 11px rgba(0, 0, 0, 0.1);
+	padding: 5px;
+}
+
+.copyright {
+	margin-top: 5px;
+	font-size: 12px;
+	text-align: center;
+	color: #8f979e;
+}
+
+.copyright a {
+	color: #8f979e;
+}
+
+
+.ticket-box {
+	display: block;
+	margin-bottom: 0.5rem;
+	height: 100%;
+}
+
+.ticket-box .ticket-img {
+	display: block;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.ticket-box .detail {
+	text-align: center;
+}
+
+.ticket-box .detail .am-badge {
+	margin: 0 0.5rem 0 0.3rem;
+}
+
+.am-input-group .am-dropdown {
+	width: 100%;
+}
+
+.am-breadcrumb {
+	margin-bottom: 0;
+	margin-top: 0.5rem;
+}
+
+.ie-must-go-die {
+	min-width: 100%;
+	min-height: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0
+}
+
+.ie-must-go-die {
+	position: fixed;
+	z-index: 23336666;
+	background: url(../img/ie-die.jpg) no-repeat 50%;
+	background-size: cover
+}
+
+.ie-must-go-die .ie-container {
+	position: absolute;
+	top: 40%;
+	left: 25%;
+	text-align: center;
+	color: #c99
+}
+
+.ie-must-go-die .ie-container h1 {
+	font-size: 28px;
+	margin-bottom: 36px
+}
+
+.ie-must-go-die .ie-container p {
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 16px
+}
+
+.ie-must-go-die .ie-container a {
+	display: block;
+	color: inherit
+}
+
+.ie-must-go-die .ie-container a:visited {
+	color: inherit
+}
+
+/* AmazeUI reset */
+.am-topbar-inverse {
+    background-color: #294A85;
+}
+
+.am-btn-secondary {
+    color: #fff;
+    background-color: #758aad;
+    border-color: #758aad;
+}
+
+.am-btn-secondary:hover, .am-btn-secondary:focus {
+    background-color: #5574bd;
+    border-color: #5574bd;
+}
+
+.am-btn-primary {
+    color: #fff;
+    background-color: #294A85;
+    border-color: #294A85;
+}
+
+.am-btn-primary:hover, .am-btn-primary:focus {
+    background-color: #5574bd;
+    border-color: #5574bd;
+}
+
+.am-alert-success {
+    background-color: #446fb7;
+    border-color: #446fb7;
+    color: #fff;
+}
+
+.am-btn-primary.am-disabled, .am-btn-primary[disabled], fieldset[disabled] .am-btn-primary, .am-btn-primary.am-disabled:hover, .am-btn-primary[disabled]:hover, fieldset[disabled] .am-btn-primary:hover, .am-btn-primary.am-disabled:focus, .am-btn-primary[disabled]:focus, fieldset[disabled] .am-btn-primary:focus, .am-btn-primary.am-disabled:active, .am-btn-primary[disabled]:active, fieldset[disabled] .am-btn-primary:active, .am-btn-primary.am-disabled.am-active, .am-btn-primary[disabled].am-active, fieldset[disabled] .am-btn-primary.am-active {
+    background-color: #5574bd;
+    border-color: #5574bd;
+}
