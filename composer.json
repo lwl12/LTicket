@@ -1,39 +1,23 @@
 {
-    "name": "topthink/think",
-    "description": "the new thinkphp framework",
-    "type": "project",
-    "keywords": [
-        "framework",
-        "thinkphp",
-        "ORM"
-    ],
-    "homepage": "http://thinkphp.cn/",
-    "license": "Apache-2.0",
-    "authors": [
-        {
-            "name": "liu21st",
-            "email": "liu21st@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.4.0",
-        "topthink/framework": "5.0.*",
-        "topthink/think-captcha": "1.*",
-        "topthink/think-mongo": "1.*",
-        "topthink/think-image": "1.*",
-        "topthink/think-queue": "1.*",
-        "topthink/think-migration": "1.*",
-        "topthink/think-oracle": "1.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "app\\": "application"
-        }
-    },
-    "extra": {
-        "think-path": "thinkphp"
-    },
-    "config": {
-        "preferred-install": "dist"
-    }
+	"description": "The CodeIgniter framework",
+	"name": "codeigniter/framework",
+	"type": "project",
+	"homepage": "https://codeigniter.com",
+	"license": "MIT",
+	"support": {
+		"forum": "http://forum.codeigniter.com/",
+		"wiki": "https://github.com/bcit-ci/CodeIgniter/wiki",
+		"slack": "https://codeigniterchat.slack.com",
+		"source": "https://github.com/bcit-ci/CodeIgniter"
+	},
+	"require": {
+		"php": ">=5.3.7"
+	},
+	"suggest": {
+		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	},
+	"require-dev": {
+		"mikey179/vfsStream": "1.1.*",
+		"phpunit/phpunit": "4.* || 5.*"
+	}
 }
