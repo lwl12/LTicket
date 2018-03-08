@@ -1,5 +1,7 @@
 .DS_Store
 
+pma
+
 application/cache/*
 !application/cache/index.html
 
