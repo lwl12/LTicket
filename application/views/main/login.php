@@ -1,5 +1,3 @@
-<!-- <script src='https://www.recaptcha.net/recaptcha/api.js'></script>
-<div id='recaptcha' class="g-recaptcha" data-sitekey="6LdslDkUAAAAAHTvBo2zPzsrqSSoQZHKjlKRjokw" data-callback="login" data-size="invisible"></div> -->
 <?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
 <div class="login-cover">
     <div class="login-info am-cf">

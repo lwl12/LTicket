@@ -6,7 +6,7 @@
 <div class="lwl-content">
     <h2 class="am-text-center">找回密码 / 激活账号</h2>
     <div class="am-g">
-        <form id="form-forgot" class="am-form" onsubmit="return false">
+        <?php echo form_open('/user/can_not_login', 'id="form-forgot" class="am-form" onsubmit="return false"'); ?>
             <fieldset>
                 <div class="am-u-lg-12">
                     <div class="am-form-group">
@@ -17,9 +17,7 @@
                     </div>
                 </div>
             </fieldset>
-            
-            <script src='https://www.recaptcha.net/recaptcha/api.js'></script>
-            <div id='recaptcha' class="g-recaptcha" data-sitekey="6LdslDkUAAAAAHTvBo2zPzsrqSSoQZHKjlKRjokw" data-callback="PostForm" data-size="invisible"></div>
+
             <button id="btn-forgot" type="submit" class="am-btn am-btn-primary am-btn-block">发送邮件</button>
         </form>
     </div>

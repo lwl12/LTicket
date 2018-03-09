@@ -20,14 +20,17 @@ $('#form-forgot').validator({
 });
 
 function PostForm() {
+    if($("#form-forgot .am-field-error").length != 0){
+        alert('表单填写错误，请检查！');
+        return false;
+    }
     $('#btn-forgot').button('loading');
     $.ajax({
         type: "POST",
-        //url: "/user/forgot_pwd",
         url: "/user/can_not_login",
         data: {
             'id': $('#input-email').val().trim(),
-            'g-recaptcha-response': grecaptcha.getResponse()
+            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
         },
         dataType: "json",
         success: function (response) {
@@ -36,23 +39,14 @@ function PostForm() {
                 window.location.href = '/';
             } else {
                 alert(response.msg);
-                grecaptcha.reset();
             }
             $('#btn-forgot').button('reset');
         }
     });
 }
 
-function check() {
-    if($("#form-forgot .am-field-error").length != 0){
-        alert('表单填写错误，请检查！');
-        return false;
-    }
-    grecaptcha.execute();
-}
-
 $('#btn-forgot').click(function() {
     setTimeout(() => {
-        check()
+        PostForm()
     }, 100);
 });

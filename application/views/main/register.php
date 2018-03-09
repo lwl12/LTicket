@@ -19,7 +19,7 @@
 
   </div>
     <div class="am-g">
-        <?php echo form_open('user/register', 'id="form-reg" class="am-form" onsubmit="return false"'); ?>
+        <?php echo form_open('/user/register', 'id="form-reg" class="am-form" onsubmit="return false"'); ?>
             <fieldset>
                 <div class="am-u-lg-12">
                     <div class="am-form-group">

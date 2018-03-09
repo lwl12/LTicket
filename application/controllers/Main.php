@@ -30,6 +30,38 @@ class Main extends CI_Controller
         $this->load->view('global/footer', $data);
     }
 
+    public function forgot_pwd($id = '')
+    {
+        if ($this->ion_auth->logged_in()) {
+            redirect('/main/profile');
+        }
+        $data['add_css'] = array();
+        $data['add_js'] = array('forgot_pwd.js');
+        $data['logged'] = $this->ion_auth->logged_in();
+        $data['id'] = $id;
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        
+        $this->load->view('global/header', $data);
+        $this->load->view('main/forgot_pwd', $data);
+        $this->load->view('global/footer', $data);
+    }
+
+    public function reset_pwd($code)
+    {
+        if ($this->ion_auth->logged_in()) {
+            redirect('/main/profile');
+        }
+        $data['add_css'] = array();
+        $data['add_js'] = array('reset_pwd.js');
+        $data['logged'] = $this->ion_auth->logged_in();
+        $data['code'] = $code;
+        $this->load->view('global/header', $data);
+        $this->load->view('main/reset_pwd');
+        $this->load->view('global/footer', $data);
+    }
+
     public function login()
     {
         if ($this->ion_auth->logged_in()) {
