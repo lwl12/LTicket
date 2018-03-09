@@ -54,10 +54,12 @@ $lang['deactivate_confirm_n_label']          = '取消:';
 $lang['deactivate_submit_btn']               = '提交';
 $lang['deactivate_validation_confirm_label'] = '确认';
 $lang['deactivate_validation_user_id_label'] = '用户 ID';
+$lang['deactivate_validation_username_label'] = '用户 ID';
 
 // Create User
 $lang['create_user_heading']                           = '创建用户';
 $lang['create_user_subheading']                        = '请填入以下的用户信息.';
+$lang['create_user_username_label']                    = '用户名:';
 $lang['create_user_fname_label']                       = '名字:';
 $lang['create_user_lname_label']                       = '姓氏:';
 $lang['create_user_identity_label']                    = 'Identity:';
@@ -81,6 +83,7 @@ $lang['create_user_validation_password_confirm_label'] = '确认密码';
 // Edit User
 $lang['edit_user_heading']                           = '修改用户';
 $lang['edit_user_subheading']                        = '请输入下列的用户信息.';
+$lang['edit_user_username_label']                    = '用户名:';
 $lang['edit_user_fname_label']                       = '名字:';
 $lang['edit_user_lname_label']                       = '姓氏:';
 $lang['edit_user_company_label']                     = '公司名:';
@@ -141,7 +144,6 @@ $lang['forgot_password_validation_email_label']  = '邮箱地址';
 $lang['forgot_password_username_identity_label'] = '用户名';
 $lang['forgot_password_email_identity_label']    = '邮箱';
 $lang['forgot_password_email_not_found']         = '无此邮箱的记录.';
-$lang['forgot_password_identity_not_found']         = 'No record of that username address.';
 
 // Reset Password
 $lang['reset_password_heading']                               = '修改密码';

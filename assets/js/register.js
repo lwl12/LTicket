@@ -31,14 +31,14 @@ function PostReg() {
         data: {
             'email': $('#input-email').val().trim(),
             'phone': $('#input-phone').val().trim(),
-            'un': $('#input-username').val().trim(),
-            'pw': $('#input-pwd').val().trim(),
-            'g-recaptcha-response': grecaptcha.getResponse()
+            'username': $('#input-username').val().trim(),
+            'passwd': $('#input-pwd').val().trim(),
+            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
         },
         dataType: "json",
         success: function (response) {
             if(response.status > 0) {
-                $('.fly-content').html(
+                $('.lwl-content').html(
                 '<h2 class="am-text-center">离成功只有一步——</h2>'+
                 '<p class="am-text-center">'+
                     '系统已经发送了一封邮件到您填写的邮箱，请打开您的邮箱，点击激活链接进行激活。'+

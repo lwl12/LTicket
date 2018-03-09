@@ -64,12 +64,12 @@ $lang['group_name_admin_not_alter'] = 'Admin group name can not be changed';
 $lang['email_activation_subject']         = '帐号激活';
 $lang['email_activate_heading']    = 'Activate account for %s';
 $lang['email_activate_subheading'] = 'Please click this link to %s.';
-$lang['email_activate_link']       = 'Activate Your Account';
+$lang['email_activate_link']       = '立即激活';
 // Forgot Password Email
 $lang['email_forgotten_password_subject'] = '密码重设验证';
 $lang['email_forgot_password_heading']    = 'Reset Password for %s';
 $lang['email_forgot_password_subheading'] = 'Please click this link to %s.';
-$lang['email_forgot_password_link']       = 'Reset Your Password';
+$lang['email_forgot_password_link']       = '立即修改';
 // New Password Email
 $lang['email_new_password_subject']       = '您的新密码';
 $lang['email_new_password_heading']    = 'New Password for %s';
