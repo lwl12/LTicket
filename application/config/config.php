@@ -35,7 +35,7 @@ $config['base_url'] = 'http://lticket.local/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -430,8 +430,8 @@ $config['standardize_newlines'] = FALSE;
 |
 | WARNING: This feature is DEPRECATED and currently available only
 |          for backwards compatibility purposes!
-|
-*/
+    |
+    */
 $config['global_xss_filtering'] = FALSE;
 
 /*
@@ -452,7 +452,7 @@ $config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = '_SECSRF-T';
 $config['csrf_cookie_name'] = '_SECSRF-C';
 $config['csrf_expire'] = 7200;
-$config['csrf_regenerate'] = TRUE;
+$config['csrf_regenerate'] = FALSE;
 $config['csrf_exclude_uris'] = array();
 
 /*

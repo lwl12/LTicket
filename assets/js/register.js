@@ -24,6 +24,11 @@ $('#form-reg').validator({
 });
 
 function PostReg() {
+    if($("#form-reg .am-field-error").length != 0){
+        $('#error-disp').css('display', '');
+        $('#error-desc').html('<p>信息填写有误，请修正。</p>');
+        return false;
+    }
     $('#btn-reg').button('loading');
     $.ajax({
         type: "POST",
@@ -51,25 +56,17 @@ function PostReg() {
                 window.location.href = '/';
                 */
             } else {
-                alert(response.msg);
-                grecaptcha.reset();
+                $('#error-disp').css('display', '');
+                $('#error-desc').html(response.msg);
             }
             $('#btn-reg').button('reset');
         }
     });
 }
 
-function Reg() {
-    if($("#form-reg .am-field-error").length != 0){
-        alert('表单填写错误，请检查！');
-        return false;
-    }
-    grecaptcha.execute();
-}
-
 $('#btn-reg').click(function() {
     setTimeout(() => {
-        Reg()
+        PostReg()
     }, 100);
 });
 

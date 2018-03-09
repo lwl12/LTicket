@@ -8,6 +8,16 @@
 
 <div class="lwl-content">
     <h2 class="am-text-center">注册账号</h2>
+
+    <div class="am-alert am-alert-warning am-alert-icon-lg" id="error-disp" style="display: none;">
+    <button type="button" class="am-close">×</button>
+    <span class="am-icon-exclamation-circle"></span>
+    <div class="am-alert-bd">
+      <h3>注册过程遇到了问题</h3>
+      <div id="error-desc"></div>
+    </div>
+
+  </div>
     <div class="am-g">
         <?php echo form_open('user/register', 'id="form-reg" class="am-form" onsubmit="return false"'); ?>
             <fieldset>
@@ -52,7 +62,7 @@
                     </div>
                 </div>
             </fieldset>
-            <button id="btn-reg" type="submit" onclick="PostReg()" class="am-btn am-btn-primary am-btn-block">立即注册</button>
+            <button id="btn-reg" type="submit" class="am-btn am-btn-primary am-btn-block">立即注册</button>
         </form>
     </div>
 
