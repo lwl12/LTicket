@@ -27,26 +27,15 @@ class User extends CI_Controller
 
         if($active) {
             //forgot pwd
-            $this->output->set_output(json_encode($this->forgot_pwd($email)));
+            $this->output->set_output(json_encode($this->forgot_pwd($identity)));
         } else {
             //re_active
             $this->output->set_output(json_encode($this->ion_auth->re_active($email)));
         }
     }
 
-    private function forgot_pwd($id)
+    private function forgot_pwd($identity)
     {
-        $identity_column = $this->config->item('identity', 'ion_auth');
-        //var_dump($id);
-        $identity = $this->ion_auth->where($identity_column, $id)->users()->row();
-        //var_dump($identity);
-        if (empty($identity)) {
-            $data = array(
-                'status' => '-1',
-                'msg' => '找回密码失败，请检查您输入的邮箱是否正确。'
-            );
-            return $this->output->set_output(json_encode($data));
-        }
 
         // run the forgotten password method to email an activation code to the user
         $forgotten = $this->ion_auth->forgotten_password($identity->{$this->config->item('identity', 'ion_auth')});
