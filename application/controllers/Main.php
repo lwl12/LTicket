@@ -13,7 +13,7 @@ class Main extends CI_Controller
 
     public function index()
     {
-        if (false && !$this->ion_auth->logged_in()) {
+        if (!$this->ion_auth->logged_in()) {
             redirect('/main/login');
         }
         $data['add_css'] = array();
@@ -42,7 +42,7 @@ class Main extends CI_Controller
 
         $this->load->helper('form');
         $this->load->library('form_validation');
-        
+
         $this->load->view('global/header', $data);
         $this->load->view('main/forgot_pwd', $data);
         $this->load->view('global/footer', $data);
