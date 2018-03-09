@@ -6,10 +6,27 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
-        $this->load->library('gravatar');
+        $this->load->model('Log_model');
         $this->load->library('ion_auth');
     }
 
+    public function login()
+    {
+        $id = $this->input->post('id');
+        if ($this->ion_auth->login($id, $this->input->post('pw'), false)) {
+            $data = array(
+                'status' => '1',
+                'msg' => '登录成功'
+            );
+            $this->Log_model->add_log(2, $id);
+        } else {
+            $data = array(
+                'status' => '-1',
+                'msg' => '登录失败，可能是密码错误或账号未激活！'
+            );
+        }
+        return $this->output->set_output(json_encode($data));
+    }
 
     public function register()
     {
@@ -32,17 +49,17 @@ class User extends CI_Controller
             'phone' => $this->input->post('phone')
             );
             if ($this->ion_auth->register($this->input->post('username'), $this->input->post('passwd'), $this->input->post('email'), $additional_data, $group) != false) {
-                //$this->Log_model->add_log(0, $email);
+                $this->Log_model->add_log(0, $email);
                 $data = array(
                 'status' => '1',
                 'msg' => '系统已经发送了一封激活邮件到您的邮箱，请进入邮箱查收并激活！'
             );
-        } else {
-            $data = array(
+            } else {
+                $data = array(
             'status' => '-1',
-            'msg' => 'ion_auth 失败！'
+            'msg' => 'ion_auth Unexpected!'
         );
-        }
+            }
         }
 
 

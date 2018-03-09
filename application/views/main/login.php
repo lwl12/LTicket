@@ -1,6 +1,6 @@
-<script src='https://www.recaptcha.net/recaptcha/api.js'></script>
-<div id='recaptcha' class="g-recaptcha" data-sitekey="6LdslDkUAAAAAHTvBo2zPzsrqSSoQZHKjlKRjokw" data-callback="login" data-size="invisible"></div>
-
+<!-- <script src='https://www.recaptcha.net/recaptcha/api.js'></script>
+<div id='recaptcha' class="g-recaptcha" data-sitekey="6LdslDkUAAAAAHTvBo2zPzsrqSSoQZHKjlKRjokw" data-callback="login" data-size="invisible"></div> -->
+<?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
 <div class="login-cover">
     <div class="login-info am-cf">
         <div class="login-info-form">
@@ -8,7 +8,7 @@
                 <div class="am-g">
                     <div class="am-u-lg-12">
                         <div class="login-logo">
-                            <img src="assets/i/logo-off.png" alt="">
+                            <img src="assets/i/logo-b.png" alt="">
                         </div>
                     </div>
                     <div class="am-u-lg-12">
@@ -22,6 +22,7 @@
                             <span class="am-input-group-label"><i class="am-icon-key am-icon-fw"></i></span>
                             <input id="input-pwd" type="password" class="am-form-field" placeholder="密码">
                         </div>
+                        <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
                     </div>
                 </div>
                 <div class="am-g am-margin-top-lg">
@@ -43,8 +44,8 @@
 
         <div class="login-info-cover">
             <div class="login-info-cover-title">
-                Restarat
-                <div class="login-info-cover-title-small">LTicket</div>
+                LTicket
+                <div class="login-info-cover-title-small">LWL Networks Technology (Group) Co., Ltd. ʘᴗʘ</div>
                 <div class="login-info-cover-line"></div>
             </div>
         </div>

@@ -1,8 +1,8 @@
 </div>
 <div class="copyright">
-    Made with <span class="am-icon-heart"></span></a>
+    Made with <span class="am-icon-heart"></span> by <a href="https://lwl.moe/" target="_blank">lwl12</a>
     <br>
-    &copy; 2017-2018 LWL Networks. All rights reserved.
+    &copy; 2018 LWL Networks. All rights reserved.
 </div>
 
 </div>
