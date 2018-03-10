@@ -15,13 +15,14 @@ function do_search(all,uid) {
     if (all) key = 'name',txt = '';
     if (uid) key = 'uid',txt = uid;
     if(key == 'id') txt = parseInt(txt);
-    
+
     $.ajax({
         type: "POST",
         url: "/admin/api_search_tickets",
         data: {
             'key': key,
-            'value': txt
+            'value': txt,
+            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
         },
         dataType: "json",
         success: function (response) {
@@ -52,7 +53,7 @@ function bind_all() {
 
 function ticket_edit(id) {
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/admin/api_ticket_info",
         data: {
             'id': id
@@ -65,7 +66,7 @@ function ticket_edit(id) {
             $('#edit-user').attr('href', '/admin/users/'+response.uid);
             $('#edit-name').val(response.name);
             $('#edit-phone').val(response.phone);
-            
+
             // $('#edit-type').val(response.type);
             $("#edit-type").get(0).selectedIndex = response.type - 1;
             $("#edit-type").trigger('changed.selected.amui');
@@ -90,7 +91,8 @@ function ticket_edit(id) {
                             'phone': $('#edit-phone').val().trim(),
                             'type': $('#edit-type').val().trim(),
                             'class': $('#edit-class').val().trim(),
-                            'status': $('#edit-status').val().trim()
+                            'status': $('#edit-status').val().trim(),
+                            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
                         },
                         dataType: "json",
                         success: function (response) {
@@ -125,6 +127,7 @@ $('#sendTicket').click(function() {
                     'phone': $('#add-phone').val().trim(),
                     'type': $('#add-type').val().trim(),
                     'class': $('#add-class').val().trim(),
+                    '_SECSRF-T': $("input[name='_SECSRF-T']").val()
                 },
                 dataType: "json",
                 success: function (response) {
@@ -143,9 +146,9 @@ function addZero(num,length){
     var numstr = num.toString();
     var l=numstr.length;
     if (numstr.length>=length) {return numstr;}
-      
+
     for(var  i = 0 ;i<length - l;i++){
-      numstr = "0" + numstr;  
+      numstr = "0" + numstr;
      }
-    return numstr; 
+    return numstr;
 }

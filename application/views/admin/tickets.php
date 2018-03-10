@@ -49,7 +49,7 @@
     <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
     </div>
     <div class="am-modal-bd">
-        
+
         <div class="am-input-group">
             <span class="am-input-group-label">持票人 ID：<a id="edit-user"></a></span>
         </div>
@@ -90,7 +90,7 @@
             </select>
             <!-- <input id="edit-status" type="number" class="am-form-field"> -->
         </div>
-        
+
     </div>
     <div class="am-modal-footer">
         <button type="button" class="am-btn am-modal-btn am-btn-default am-btn-hollow"  data-am-modal-cancel>取消</button>
@@ -106,7 +106,7 @@
     <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
     </div>
     <div class="am-modal-bd">
-        
+
         <div class="am-input-group">
             <span class="am-input-group-label">邮箱</span>
             <input id="add-email" type="email" class="am-form-field">
@@ -133,7 +133,7 @@
                 <option value="2">VIP 座</option>
             </select>
         </div>
-        
+
     </div>
     <div class="am-modal-footer">
         <button type="button" class="am-btn am-modal-btn am-btn-default am-btn-hollow"  data-am-modal-cancel>取消</button>
@@ -141,6 +141,9 @@
     </div>
     </div>
 </div>
+
+<?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
+<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
 
 <script>
 <?php

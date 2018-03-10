@@ -12,7 +12,6 @@
                 <option value="id">UID</option>
                 <option value="username">用户名</option>
                 <option value="email">邮箱</option>
-                <option value="name">认证姓名</option>
             </select>
         </div>
         <div class="am-u-lg-9">
@@ -61,32 +60,9 @@
         <input id="edit-phone" type="text" class="am-form-field">
     </div>
     <div class="am-input-group">
-        <span class="am-input-group-label">认证 ID</span>
-        <input id="edit-uid" type="text" class="am-form-field">
-    </div>
-    <div class="am-input-group">
-        <span class="am-input-group-label">认证姓名</span>
-        <input id="edit-name" type="text" class="am-form-field">
-    </div>
-    <div class="am-input-group">
-        <span class="am-input-group-label">认证年段</span>
-        <input id="edit-grade" type="text" class="am-form-field">
-    </div>
-    <div class="am-input-group">
-        <span class="am-input-group-label">认证班级</span>
-        <input id="edit-class" type="text" class="am-form-field">
-    </div>
-    <div class="am-input-group">
-        <span class="am-input-group-label">认证座号</span>
-        <input id="edit-seatnumber" type="text" class="am-form-field">
-    </div>
-    <div class="am-input-group">
         <span class="am-input-group-label">新密码</span>
         <input id="edit-newpw" type="password" class="am-form-field" placeholder="不修改请留空">
     </div>
-
-    <button id="users-add-auth" class="am-btn am-btn-primary am-btn-xs">加认证</button>
-    <button id="users-remove-auth" class="am-btn am-btn-primary am-btn-xs">删认证</button>
 
   </div>
   <div class="am-modal-footer">
@@ -95,6 +71,9 @@
   </div>
 </div>
 </div>
+
+<?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
+<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
 
 <script>
 <?php

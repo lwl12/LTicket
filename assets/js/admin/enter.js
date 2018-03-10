@@ -59,14 +59,15 @@ function enter(t_num, t_code, focus) {
         url: "/admin/api_enter",
         data: {
             'num': t_num,
-            'code': t_code
+            'code': t_code,
+            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
         },
         dataType: "json",
         success: function (response) {
             if(response.status > 0) {
-                notie.alert({ type: 'success', text: response.msg, time: 2, position: 'top' });                
+                notie.alert({ type: 'success', text: response.msg, time: 2, position: 'top' });
             } else {
-                notie.alert({ type: 'error', text: response.msg, time: 2, position: 'top' });                
+                notie.alert({ type: 'error', text: response.msg, time: 2, position: 'top' });
             }
             $('#log').prepend(getTime() + ': ' + addZero(t_num, 4) + ' ' + response.msg + '<br>')
             do_after(focus)
@@ -124,9 +125,9 @@ function addZero(num,length){
     var numstr = num.toString();
     var l=numstr.length;
     if (numstr.length>=length) {return numstr;}
-      
+
     for(var  i = 0 ;i<length - l;i++){
-      numstr = "0" + numstr;  
+      numstr = "0" + numstr;
      }
-    return numstr; 
+    return numstr;
 }

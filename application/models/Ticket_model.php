@@ -140,7 +140,7 @@ class Ticket_model extends CI_Model {
 
 
 
-        $path = './assets/img/tickets/'.$txt1;
+        $path = './assets/img/tickets/'.trim($txt1);
         copy('./assets/img/ticket-bg.png', $path);
 
         $this->load->library('image_lib');
@@ -176,7 +176,9 @@ class Ticket_model extends CI_Model {
         //直接输出第二次结果
         $this->image_lib->watermark();
 
-        unlink($path);
+        if (trim($txt1) != "") {
+            unlink($path);
+        }
     }
 
     public function count($type = 1) {

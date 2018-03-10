@@ -13,7 +13,7 @@
     </div>
 
     <p style="text-align:center">直接输入七位数字，如 0023123，代表票号 0023，校验码 123</p>
-    
+
     <p style="text-align:center">输入到第七位时自动提交：
         <label class="am-switch">
             <input type="checkbox" id="auto-post" checked>
@@ -30,4 +30,8 @@
     <hr>
 
     <small><span id="log"></span></small>
+
+    <?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
+    <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+    
 </div>
