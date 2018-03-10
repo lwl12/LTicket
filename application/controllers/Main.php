@@ -27,10 +27,59 @@ class Main extends CI_Controller
         $data['endTime'] = $this->config->item('endTime');
         $data['num'] = $this->config->item('maxNum');
 
-        $data['remainPercent'] = 90;
+        $remain = $this->config->item('total') - $this->Ticket_model->count();
+        $data['remainPercent'] = round((double)$remain / $this->config->item('total'), 4) * 100;
 
         $this->load->view('global/header', $data);
         $this->load->view('main/main', $data);
+        $this->load->view('global/footer', $data);
+    }
+
+    public function myTicket() {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/main/login');
+        }
+        $data['add_css'] = array();
+        $data['add_js'] = array('myTicket.js');
+        $data['logged'] = $this->ion_auth->logged_in();
+        $data['user'] = $this->User_model->userinfo();
+        $data['ticket'] = array_reverse($this->Ticket_model->getTicket($data['user']['id'])); //反过来，先预约的先输出
+
+        $this->load->view('global/header', $data);
+        $this->load->view('ticket/myTicket', $data);
+        $this->load->view('global/footer', $data);
+    }
+
+    public function book()
+    {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/main/login');
+        }
+        $data['add_css'] = array();
+        $data['add_js'] = array('ticket_book.js');
+        $data['logged'] = $this->ion_auth->logged_in();
+        $data['user'] = $this->User_model->userinfo();
+
+        $bookedNum = $this->Ticket_model->bookedNum($data['user']['id'], 1);
+
+        $this->load->view('global/header', $data);
+
+        date_default_timezone_set("Asia/Shanghai");
+        $now = time();
+        $startTime=$endTime=$now;
+        $startTime = strtotime($this->config->item('startTime'));
+        $endTime = strtotime($this->config->item('endTime'));
+
+        if ($bookedNum >= $this->config->item('maxNum')) {
+            $this->load->view('StaticPage/booked');
+        } elseif ($now<$startTime || $now>$endTime) {
+            $this->load->view('StaticPage/book_time_err');
+        } elseif ($this->config->item('total') - $this->Ticket_model->count() <= 0) {
+            $this->load->view('StaticPage/book_no_remain');
+        } else {
+            $this->load->view('ticket/book');
+        }
+
         $this->load->view('global/footer', $data);
     }
 

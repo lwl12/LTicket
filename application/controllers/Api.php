@@ -7,9 +7,15 @@ class Api extends CI_Controller
         parent::__construct();
         $this->load->model('User_model');
         $this->load->library('gravatar');
-        /*if (!$this->ion_auth->logged_in()) {
-            redirect('/');
-        }*/
+        if (!$this->ion_auth->logged_in()) {
+            $this->output->set_status_header(403);
+            $data = array(
+                    'status' => '-1',
+                    'msg' => '请先登录！'
+                );
+            echo json_encode($data);
+            die();
+        }
     }
 
     private function getURL($email) {

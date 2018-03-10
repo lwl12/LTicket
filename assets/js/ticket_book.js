@@ -24,6 +24,10 @@ $('#form-book').validator({
 
 
 function PostForm() {
+    if($("#form-book .am-field-error").length != 0 || $('#input-name').val().trim() == '' ||  $('#input-phone').val().trim() == ''){
+        alert('表单填写错误，请检查！');
+        return false;
+    }
     $('#btn-book').button('loading');
     $.ajax({
         type: "POST",
@@ -31,7 +35,7 @@ function PostForm() {
         data: {
             'name': $('#input-name').val().trim(),
             'phone': $('#input-phone').val().trim(),
-            'g-recaptcha-response': grecaptcha.getResponse()
+            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
         },
         dataType: "json",
         success: function (response) {
@@ -41,23 +45,14 @@ function PostForm() {
             } else {
                 alert(response.msg);
                 if(response.status == -2) window.location.reload();
-                grecaptcha.reset();
             }
             $('#btn-book').button('reset');
         }
     });
 }
 
-function check() {
-    if($("#form-book .am-field-error").length != 0 || $('#input-name').val().trim() == '' ||  $('#input-phone').val().trim() == ''){
-        alert('表单填写错误，请检查！');
-        return false;
-    }
-    grecaptcha.execute();
-}
-
 $('#btn-book').click(function() {
     setTimeout(() => {
-        check()
+        PostForm()
     }, 100);
 });

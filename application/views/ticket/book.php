@@ -11,7 +11,7 @@
         <p><small>
             1. 请确保所填写的信息真实准确，一旦提交，无法修改；
             <br>
-            2. 手机号将作为您参加晚会抽奖的重要依据，请您务必确保填写无误；
+            2. 手机号将作为您参加相关活动的重要依据，请您务必确保填写无误；
             <br>
             3. 请勿恶意提交。
         </small></p>
@@ -24,7 +24,7 @@
                         <div class="am-form-group">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-                                <input id="input-name" type="text" class="am-form-field" placeholder="姓名" data-validation-message="请填写正确的姓名" value="<?php echo $user['name'] ?>" required>
+                                <input id="input-name" type="text" class="am-form-field" placeholder="姓名" data-validation-message="请填写正确的姓名" value="<?php echo $user['username'] ?>" required>
                             </div>
                         </div>
                     </div>
@@ -35,9 +35,8 @@
                                 <input id="input-phone" type="text" class="am-form-field js-pattern-mobile" placeholder="手机号" data-validation-message="请输入11位大陆手机号" value="<?php echo $user['phone'] ?>" required>
                             </div>
                     </div>
-
-                    <script src='https://www.recaptcha.net/recaptcha/api.js'></script>
-                    <div id='recaptcha' class="g-recaptcha" data-sitekey="6LdslDkUAAAAAHTvBo2zPzsrqSSoQZHKjlKRjokw" data-callback="PostForm" data-size="invisible"></div>
+                    <?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
+                    <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
                     <button id="btn-book" type="button" class="am-btn am-btn-primary am-btn-block">预约！</button>
                 </form>
             </div>

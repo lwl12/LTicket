@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['startTime'] = '2017-11-10 00:00:00';
-$config['endTime'] = '2017-12-30 00:00:00';
-$config['maxNum'] = 100;
+$config['endTime'] = '2018-12-30 00:00:00';
+$config['maxNum'] = 10;
 $config['total'] = 100;
 $config['enableLog'] = TRUE;
 

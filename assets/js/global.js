@@ -1,6 +1,6 @@
 function _logout() {
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "user/logout",
         dataType: "json",
         success: function (response) {
