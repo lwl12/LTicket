@@ -42,7 +42,7 @@ class Admin_model extends CI_Model {
             'time_use' => time()
         );
         $this->db->where('id', $num);
-        
+
         if ($this->db->update('ticket', $data)) {
             $this->Log_model->add_log(13, $num);
             $returndata = array(
@@ -104,41 +104,7 @@ class Admin_model extends CI_Model {
         };
     }
 
-    public function add_auth($id) {
-        if ($this->ion_auth->add_to_group(3, $id)) {
-            $this->Log_model->add_log(14, $id);
-            $returndata = array(
-                'status' => 1,
-                'msg' => '设置认证成功'
-            );
-            return $returndata;
-        } else {
-            $returndata = array(
-                'status' => -1,
-                'msg' => '设置认证失败，请联系管理员！'
-            );
-            return $returndata;
-        };
-    }
 
-    public function remove_auth($id) {
-        if ($this->ion_auth->remove_from_group(3, $id)) {
-            $this->Log_model->add_log(15, $id);
-            $returndata = array(
-                'status' => 1,
-                'msg' => '取消认证成功'
-            );
-            return $returndata;
-        } else {
-            $returndata = array(
-                'status' => -1,
-                'msg' => '取消认证失败，请联系管理员！'
-            );
-            return $returndata;
-        };
-    }
-    
-    
     public function search_tickets($key, $value) {
         if ($key == 'id' || $key == 'uid') {
             $query = $this->db->where($key, $value)->get('ticket')->result_array();

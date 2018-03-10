@@ -71,7 +71,7 @@ class Ion_auth
 		$this->load->model('ion_auth_model');
 
 		$this->_cache_user_in_group =& $this->ion_auth_model->_cache_user_in_group;
-	
+
 		$email_config = $this->config->item('email_config', 'ion_auth');
 
 		if ($this->config->item('use_ci_email', 'ion_auth') && isset($email_config) && is_array($email_config))
@@ -146,6 +146,8 @@ class Ion_auth
 			{
 				$data = array(
 					'identity' => $user->{$this->config->item('identity', 'ion_auth')},
+					'email'      => $user->email,
+					'username'   => $user->username,
 					'forgotten_password_code' => $user->forgotten_password_code
 				);
 
@@ -216,6 +218,8 @@ class Ion_auth
 		{
 			$data = array(
 				'identity'     => $profile->{$identity},
+				'email'      => $user->email,
+				'username'   => $user->username,
 				'new_password' => $new_password
 			);
 			if(!$this->config->item('use_ci_email', 'ion_auth'))
@@ -303,7 +307,7 @@ class Ion_auth
 	 *                        if the operation failed.
 	 * @author Mathew
 	 */
-	public function register($identity, $password, $email, $additional_data = array(), $group_ids = array())
+	public function register($identity, $password, $email, $additional_data = array(), $group_ids = array()) //need to test email activation
 	{
 		$this->ion_auth_model->trigger_events('pre_account_creation');
 
@@ -355,6 +359,7 @@ class Ion_auth
 			$data = array(
 				'identity'   => $user->{$identity},
 				'id'         => $user->id,
+				'username'   => $user->username,
 				'email'      => $email,
 				'activation' => $activation_code,
 			);
@@ -374,7 +379,7 @@ class Ion_auth
 				$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - ' . $this->lang->line('email_activation_subject'));
 				$this->email->message($message);
 
-				if ($this->email->send() === TRUE)
+				if ($this->email->send() == TRUE)
 				{
 					$this->ion_auth_model->trigger_events(array('post_account_creation', 'post_account_creation_successful', 'activation_email_successful'));
 					$this->set_message('activation_email_successful');
@@ -546,6 +551,74 @@ class Ion_auth
 		 * if all, true
 		 */
 		return $check_all;
+	}
+
+	public function re_active($email)
+	{
+        $identity = $this->ion_auth->where('email', $email)->users()->row();
+		$id = $identity->id;
+
+		// deactivate so the user much follow the activation flow
+		$deactivate = $this->ion_auth_model->deactivate($id);
+
+		// the deactivate method call adds a message, here we need to clear that
+		$this->ion_auth_model->clear_messages();
+
+
+		if (!$deactivate)
+		{
+			$data = array(
+				'status' => '-1',
+				'msg' => '该账号已激活！请联系管理员处理！'
+			);
+			return $data;
+		}
+
+		$activation_code = $this->ion_auth_model->activation_code;
+		$identity        = $this->config->item('identity', 'ion_auth');
+		$user            = $this->ion_auth_model->user($id)->row();
+
+		$data = array(
+			'identity'   => $user->{$identity},
+			'id'         => $user->id,
+			'email'      => $email,
+			'username'   => $user->username,
+			'activation' => $activation_code,
+		);
+		if(!$this->config->item('use_ci_email', 'ion_auth'))
+		{
+			$data = array(
+				'status' => '1',
+				'msg' => '激活邮件发送成功！'
+			);
+			return $data;
+		}
+		else
+		{
+			$message = $this->load->view($this->config->item('email_templates', 'ion_auth').$this->config->item('email_activate', 'ion_auth'), $data, true);
+
+			$this->email->clear();
+			$this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
+			$this->email->to($email);
+			$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - ' . $this->lang->line('email_activation_subject'));
+			$this->email->message($message);
+
+			if ($this->email->send() == TRUE)
+			{
+				$data = array(
+					'status' => '1',
+					'msg' => '激活邮件发送成功！'
+				);
+				return $data;
+			}
+
+		}
+
+		$data = array(
+			'status' => '-1',
+			'msg' => '激活邮件发送失败！请联系管理员处理！'
+		);
+		return $data;
 	}
 
 }

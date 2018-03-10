@@ -30,7 +30,8 @@ function PostForm() {
         url: "/user/reset_pwd",
         data: {
             'code': code,
-            'pw': $('#input-pwd').val().trim()
+            'pw': $('#input-pwd').val().trim(),
+            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
         },
         dataType: "json",
         success: function (response) {

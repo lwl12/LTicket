@@ -8,6 +8,8 @@
     <h2 class="am-text-center">重设密码</h2>
     <div class="am-g">
         <form id="form-reset" class="am-form" onsubmit="return false">
+            <?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
+            <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
             <fieldset>
                 <div class="am-u-lg-12">
                     <div class="am-form-group">

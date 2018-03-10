@@ -54,7 +54,7 @@ class User extends CI_Controller
                 'msg' => '更改密码失败：未知错误，请联系管理员处理。'
             );
         }
-        $this->output->set_output(json_encode($data));
+        return $data;
     }
 
     public function reset_pwd()
@@ -189,7 +189,7 @@ class User extends CI_Controller
             'phone' => $this->input->post('phone')
             );
             if ($this->ion_auth->register($this->input->post('username'), $this->input->post('passwd'), $this->input->post('email'), $additional_data, $group) != false) {
-                $this->Log_model->add_log(0, $email);
+                $this->Log_model->add_log(0, $this->input->post('email'));
                 $data = array(
                 'status' => '1',
                 'msg' => '系统已经发送了一封激活邮件到您的邮箱，请进入邮箱查收并激活！'
