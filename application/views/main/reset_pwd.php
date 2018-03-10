@@ -13,7 +13,7 @@
                     <div class="am-form-group">
                         <div class="am-input-group">
                             <span class="am-input-group-label"><i class="am-icon-key am-icon-fw"></i></span>
-                            <input id="input-pwd" type="password" class="am-form-field" minlength="6" maxlength="20" placeholder="新密码 (6-20位字符)" required>
+                            <input id="input-pwd" type="password" class="am-form-field" minlength="6" maxlength="20" placeholder="新密码 (至少六位)" required>
                         </div>
                     </div>
                 </div>

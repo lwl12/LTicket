@@ -20,10 +20,9 @@
 
     <div class="am-g am-center" style="margin-top:0.5rem;margin-bottom:0.5rem;max-width:600px;">
         <button type="button" id="cpw-prompt-toggle" class="am-btn am-btn-primary am-btn-block am-center">修改密码</button>
-        <a type="button" class="am-btn am-btn-primary am-btn-block am-center" href="/main/authenticate">校园网认证</a>
     </div>
 </div>
-
+<?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
 <div class="am-modal am-modal-prompt" tabindex="-1" id="cpw-prompt">
   <div class="am-modal-dialog">
     <div class="am-modal-hd">
@@ -34,6 +33,7 @@
       <input id="user-cpw-old-pw" type="password" placeholder="原密码" class="am-modal-prompt-input">
       <input id="user-cpw-new-pw" type="password" placeholder="新密码" class="am-modal-prompt-input">
       <input id="user-cpw-confirm-pw" type="password" placeholder="重复输入新密码" class="am-modal-prompt-input">
+      <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
     </div>
     <div class="am-modal-footer">
       <button type="button" class="am-btn am-modal-btn am-btn-default am-btn-hollow"  data-am-modal-cancel>取消</button>

@@ -17,7 +17,19 @@
 
     <p class="am-text-center">
         您的预约时间： <br> <?php echo $startTime ?> <br> 至  <br> <?php echo $endTime ?>
+        <br><br>
+        <b>门票发放计划</b><br>
+        28 日 12:34 - 233 张（认证专属）<br>
+        29 日 22:23 - 666 张<br>
+        30 日 18:17 - 余下所有！
     </p>
+    
+    <div class="am-g doc-am-g" style="margin-bottom:0.5rem">
+        <div class="am-u-lg-12" style="margin-bottom:0.5rem">
+            <p class="am-text-center"><b>今日门票剩余：</b></p>
+            <div data-am-progressbar="{percentage:'<?php echo $remainPercent; ?>', textInner: true}"></div>
+        </div>
+    </div>
 
     <div class="am-g doc-am-g" style="margin-bottom:0.5rem">
         <div class="am-u-lg-6" style="margin-bottom:0.5rem">

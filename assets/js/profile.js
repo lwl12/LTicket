@@ -14,8 +14,8 @@ function open_cpw_modal() {
                     open_cpw_modal()
                 }, 300);
                 //fucking modal....
-			} else if (new_pw.length < 6 || new_pw.length > 20) {
-                alert('密码必须为 6-20 位的数字和字母的组合！');
+			} else if (new_pw.length < 0) {
+                alert('密码必须大于六位！');
                 setTimeout(() => {
                     open_cpw_modal()
                 }, 300);

@@ -19,7 +19,8 @@ function _cpw(old_pw,new_pw,callback) {
         url: "user/cpw",
         data: {
             'old_pw': old_pw,
-            'new_pw': new_pw
+            'new_pw': new_pw,
+            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
         },
         dataType: "json",
         success: function (response) {

@@ -9,6 +9,8 @@ class Main extends CI_Controller
         $this->load->model('Ticket_model');
         $this->load->library('gravatar');
         $this->load->library('ion_auth');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
     }
 
     public function index()
@@ -25,8 +27,24 @@ class Main extends CI_Controller
         $data['endTime'] = $this->config->item('endTime');
         $data['num'] = $this->config->item('maxNum');
 
+        $data['remainPercent'] = 90;
+
         $this->load->view('global/header', $data);
         $this->load->view('main/main', $data);
+        $this->load->view('global/footer', $data);
+    }
+
+    public function profile()
+    {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/main/login');
+        }
+        $data['add_css'] = array();
+        $data['add_js'] = array('profile.js');
+        $data['logged'] = $this->ion_auth->logged_in();
+        $data['user'] = $this->User_model->userinfo();
+        $this->load->view('global/header', $data);
+        $this->load->view('main/profile');
         $this->load->view('global/footer', $data);
     }
 
@@ -39,9 +57,6 @@ class Main extends CI_Controller
         $data['add_js'] = array('forgot_pwd.js');
         $data['logged'] = $this->ion_auth->logged_in();
         $data['id'] = $id;
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
 
         $this->load->view('global/header', $data);
         $this->load->view('main/forgot_pwd', $data);
@@ -84,9 +99,6 @@ class Main extends CI_Controller
         $data['add_css'] = array();
         $data['add_js'] = array('register.js');
         $data['logged'] = false;
-
-        $this->load->helper('form');
-        $this->load->library('form_validation');
 
         $this->load->view('global/header', $data);
         $this->load->view('main/register');

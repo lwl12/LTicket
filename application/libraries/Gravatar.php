@@ -123,7 +123,7 @@ class Gravatar {
      */
     public function get($email, $size = null, $default_image = null, $force_default_image = null, $rating = null) {
 
-        $url = ($this->is_https ? $this->gravatar_secure_base_url : $this->gravatar_base_url).'avatar/'.$this->create_hash($email).$this->gravatar_image_extension;
+        $url = ($this->is_https ? $this->gravatar_secure_base_url : $this->gravatar_base_url).$this->create_hash($email).$this->gravatar_image_extension;
 
         $query = array();
 
@@ -170,9 +170,9 @@ class Gravatar {
         if (!empty($query)) {
             $url = $url.'?'.http_build_query($query);
         }
-        
-        $url = str_replace("www.gravatar.com/avatar","cdn.v2ex.com/gravatar",$url);
-        $url = str_replace("secure.gravatar.com/avatar","cdn.v2ex.com/gravatar",$url);
+        //
+        // $url = str_replace("www.gravatar.com/avatar","cdn.v2ex.com/gravatar",$url);
+        // $url = str_replace("secure.gravatar.com/avatar","cdn.v2ex.com/gravatar",$url);
         $url = str_replace("s=80","s=200",$url);
         return $url;
     }

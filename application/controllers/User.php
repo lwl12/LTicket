@@ -8,6 +8,8 @@ class User extends CI_Controller
         $this->load->model('User_model');
         $this->load->model('Log_model');
         $this->load->library('ion_auth');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
     }
 
     public function can_not_login() {
