@@ -30,9 +30,9 @@ class Main extends CI_Controller
         $remain = $this->config->item('total') - $this->Ticket_model->count();
         $data['remainPercent'] = round((double)$remain / $this->config->item('total'), 4) * 100;
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('main/main', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function myTicket() {

@@ -36,7 +36,7 @@
   <div class="input-group-prepend">
     <span class="input-group-text">数据库密码</span>
   </div>
-  <input type="password" class="form-control" placeholder="" aria-label="dbpass">
+  <input type="password" class="form-control" autocomplete="off" aria-label="dbpass">
 </div>
 
 <div class="input-group mb-3">
@@ -68,7 +68,7 @@
   <div class="input-group-prepend">
     <span class="input-group-text">密码</span>
   </div>
-  <input type="password" class="form-control" placeholder="" aria-label="mxpass">
+  <input type="password" class="form-control" autocomplete="off" aria-label="mxpass">
 </div>
 
 <div class="input-group mb-3">
@@ -77,9 +77,13 @@
     </div>
     <input type="text" class="form-control" placeholder="一般与用户名一致" aria-label="mxuser">
   <div class="input-group-prepend">
-    <span class="input-group-text">验证方式</span>
+    <span class="input-group-text">加密</span>
   </div>
-  <input type="text" class="form-control" value="SSL（强制使用加密链接）" aria-label="mxsec" disabled>
+  <select class="custom-select" id="mxsec">
+    <option selected value="SSL">SSL</option>
+    <option value="TLS">START TLS</option>
+    <option value="NONE">Plain</option>
+  </select>
 </div>
 
 <button type="button" class="btn btn-lg btn-outline-success btn-block" style="display: block; margin-top: 2em; margin-bottom: 1em;">开始安装</button>

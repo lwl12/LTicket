@@ -22,7 +22,8 @@ body {
 }
 
 .copyright {
-	margin-top: 5px;
+	margin-top: 2em;
+	margin-bottom: 2em;
 	font-size: 12px;
 	text-align: center;
 	color: #8f979e;

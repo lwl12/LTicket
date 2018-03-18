@@ -51,28 +51,31 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <?php if($logged === true): ?>
+  <?php if($logged): ?>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="">首页 <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">首页</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="/main/profile">个人中心</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="/main/myTicket">我的邀请函</a>
       </li>
+       <?php if($user['admin']): ?>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          管理面板
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/admin/users">用户管理</a>
+          <a class="dropdown-item" href="/admin/tickets">票务管理</a>
+          <a class="dropdown-item" href="/admin/enter">入场检票</a>
+          <a class="dropdown-item" href="/admin/data">实时数据</a>
         </div>
       </li>
+      <?php endif; ?>
     </ul>
   </div>
 <?php endif; ?>

@@ -2,7 +2,7 @@
 <div class="copyright">
     Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://lwl.moe/" target="_blank">lwl12</a>
     <br>
-    &copy; 2018 LWL Networks. All rights reserved.
+    &copy; 2018 <a href="https://github.com/LWL-Networks" target="_blank">LWL Networks</a>, All rights reserved.
 </div>
 
 </div>
