@@ -1,7 +1,6 @@
 function open_cpw_modal() {
-    $('#cpw-prompt').modal({
-		relatedTarget: this,
-		onConfirm: function (e) {
+    $('#cpw-prompt').modal("show");
+    $('#confirmCPW').click(function (e) {
 			old_pw = $('#user-cpw-old-pw').val();
 			new_pw = $('#user-cpw-new-pw').val();
 			cpw = $('#user-cpw-confirm-pw').val();
@@ -25,10 +24,6 @@ function open_cpw_modal() {
                     $('#cpw-prompt-toggle').button('reset');
                 });
 			}
-		},
-		onCancel: function (e) {
-			//alert('不想说!');
-		}
 	});
 }
 $('#cpw-prompt-toggle').click(function () {

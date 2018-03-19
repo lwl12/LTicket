@@ -92,9 +92,9 @@ class Main extends CI_Controller
         $data['add_js'] = array('profile.js');
         $data['logged'] = $this->ion_auth->logged_in();
         $data['user'] = $this->User_model->userinfo();
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('main/profile');
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function forgot_pwd($id = '')
