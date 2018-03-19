@@ -107,9 +107,9 @@ class Main extends CI_Controller
         $data['logged'] = $this->ion_auth->logged_in();
         $data['id'] = $id;
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('main/forgot_pwd', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function reset_pwd($code)
@@ -121,9 +121,9 @@ class Main extends CI_Controller
         $data['add_js'] = array('reset_pwd.js');
         $data['logged'] = $this->ion_auth->logged_in();
         $data['code'] = $code;
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('main/reset_pwd');
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function login()

@@ -1,6 +1,9 @@
-<ol class="am-breadcrumb">
-<li><a class="am-active am-icon-home">账号激活</a></li>
-</ol>
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> 首页</a></li>
+        <li class="breadcrumb-item active" aria-current="page">帐号激活</li>
+	</ol>
+</nav>
 
 <div class="lwl-content">
     <h2 class="text-center">激活失败...</h2>

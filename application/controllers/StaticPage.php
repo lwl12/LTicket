@@ -28,32 +28,32 @@ class StaticPage extends CI_Controller
     {
         $data['add_css'] = $data['add_js'] = array();
         $data['logged'] = $this->ion_auth->logged_in();
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('StaticPage/activate_succ');
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
     public function activate_err()
     {
         $data['add_css'] = $data['add_js'] = array();
         $data['logged'] = $this->ion_auth->logged_in();
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('StaticPage/activate_err', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
     public function reset_succ()
     {
         $data['add_css'] = $data['add_js'] = array();
         $data['logged'] = $this->ion_auth->logged_in();
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('StaticPage/reset_succ');
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
     public function reset_err()
     {
         $data['add_css'] = $data['add_js'] = array();
         $data['logged'] = $this->ion_auth->logged_in();
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('StaticPage/reset_err', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 }
