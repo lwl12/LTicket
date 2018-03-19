@@ -44,13 +44,13 @@
 </div>
 <![endif]-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark"  id="topnav">
+<nav class="navbar navbar-expand-lg navbar-dark"  id="topnav">
   <a class="navbar-brand" href="/"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" style="position:relative; z-index:99999;" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
         <?php if($logged): ?>
         <li class="nav-item <?php if($this->router->fetch_method() === 'index') echo 'active'; ?>">
