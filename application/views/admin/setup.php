@@ -86,6 +86,8 @@
   </select>
 </div>
 
+<input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" />
+
 <button type="button" class="btn btn-lg btn-outline-success btn-block" style="display: block; margin-top: 2em; margin-bottom: 1em;">开始安装</button>
 
 </div>

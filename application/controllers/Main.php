@@ -45,9 +45,9 @@ class Main extends CI_Controller
         $data['user'] = $this->User_model->userinfo();
         $data['ticket'] = array_reverse($this->Ticket_model->getTicket($data['user']['id'])); //反过来，先预约的先输出
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('ticket/myTicket', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function book()
