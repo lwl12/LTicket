@@ -11,7 +11,7 @@
             <?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
             <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
             <fieldset>
-                <div class="am-u-lg-12">
+                <div class="col-lg-12">
                     <div class="am-form-group">
                         <div class="am-input-group">
                             <span class="am-input-group-label"><i class="am-icon-key am-icon-fw"></i></span>
@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="am-u-lg-12">
+                <div class="col-lg-12">
                     <div class="am-form-group">
                         <div class="am-input-group">
                             <span class="am-input-group-label"><i class="am-icon-key am-icon-fw"></i></span>

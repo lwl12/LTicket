@@ -7,14 +7,14 @@
     <h2 class="text-center">用户管理</h2>
 
     <div class="am-g">
-        <div class="am-u-lg-3">
+        <div class="col-lg-3">
             <select id="users-search-key" data-am-selected>
                 <option value="id">UID</option>
                 <option value="username">用户名</option>
                 <option value="email">邮箱</option>
             </select>
         </div>
-        <div class="am-u-lg-9">
+        <div class="col-lg-9">
             <div class="am-input-group">
                 <input id="users-search-content" type="text" class="am-form-field">
                 <span class="am-input-group-btn">

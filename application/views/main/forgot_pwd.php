@@ -8,7 +8,7 @@
     <div class="am-g">
         <?php echo form_open('/user/can_not_login', 'id="form-forgot" class="am-form" onsubmit="return false"'); ?>
             <fieldset>
-                <div class="am-u-lg-12">
+                <div class="col-lg-12">
                     <div class="am-form-group">
                         <div class="am-input-group">
                             <span class="am-input-group-label"><i class="am-icon-at am-icon-fw"></i></span>

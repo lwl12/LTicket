@@ -73,7 +73,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:13px;color:#202020;line-height:1.5;padding-top:28px">
-                                                                    LWL Networks 安全中心 敬上</td>
+                                                                    LTicket 帐号团队敬上</td>
                                                             </tr>
                                                             <tr height="16px"></tr>
                                                             <tr>
@@ -81,7 +81,7 @@
                                                                     <table style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:12px;color:#b9b9b9;line-height:1.5">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td>此电子邮件地址无法接收回复。如需帮助，请联系邮箱 <a href="mailto:i@lwl12.com" target="_blank">i@lwl12.com</a></td>
+                                                                                <td>此电子邮件地址无法接收回复。如需帮助，请联系 <a href="mailto:LTicket-Support@lwl12.com" target="_blank">LTicket-Support@lwl12.com</a></td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

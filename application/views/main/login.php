@@ -1,41 +1,41 @@
 <?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
 <div class="login-cover">
-    <div class="login-info am-cf">
+    <div class="login-info cf">
         <div class="login-info-form">
             <div class="login-info-form-content">
-                <div class="am-g">
-                    <div class="am-u-lg-12">
+                <div class="g">
+                    <div class="col-lg-12">
                         <div class="login-logo">
                             <img src="assets/i/logo-b.png" alt="">
                         </div>
                     </div>
-                    <div class="am-u-lg-12">
-                        <div class="am-input-group">
-                            <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-                            <input id="input-username" type="email" class="am-form-field" placeholder="注册邮箱">
+                    <div class="col-lg-12">
+                        <div class="input-group">
+                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"></i></span></div>
+                            <input id="input-username" type="email" class="form-control" placeholder="注册邮箱">
                         </div>
                     </div>
-                    <div class="am-u-lg-12">
-                        <div class="am-input-group">
-                            <span class="am-input-group-label"><i class="am-icon-key am-icon-fw"></i></span>
-                            <input id="input-pwd" type="password" class="am-form-field" placeholder="密码">
+                    <div class="col-lg-12 mt-1">
+                        <div class="input-group">
+                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key fa-fw"></i></span></div>
+                            <input id="input-pwd" type="password" class="form-control" placeholder="密码">
                         </div>
                         <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
                     </div>
                 </div>
-                <div class="am-g am-margin-top-lg">
-                    <div class="am-u-md-6 am-u-lg-6"><a class="login-link" href="/main/forgot_pwd">无法登录？</a></div>
-                    <div class="am-u-md-6 am-u-lg-6">
-                        <button type="button" id="btn-login" class="am-btn am-btn-primary am-btn-block">登录</button>
+                <div class="g margin-top-lg">
+                    <div class="col-md-6 col-lg-6"><a class="login-link" href="/main/forgot_pwd">无法登录？</a></div>
+                    <div class="col-md-6 col-lg-12 mt-2">
+                        <button type="button" id="btn-login" class="btn btn-outline-success btn-block">登录</button>
                     </div>
                 </div>
-                <div class="am-u-lg-12">
+                <div class="col-lg-12">
                     <div class="login-line">
                         <span class="login-line-font">没有账号？</span>
                     </div>
                 </div>
-                <div class="am-u-md-12 am-u-lg-12 login-consociation">
-                    <a href="/main/register" type="button" class="am-btn am-btn-default am-btn-block">立即注册</a>
+                <div class="login-consociation">
+                    <a href="/main/register"><button type="button" type="button" class="btn btn-outline-info btn-block">立即注册</button></a>
                 </div>
             </div>
         </div>

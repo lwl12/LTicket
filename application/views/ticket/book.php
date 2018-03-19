@@ -20,7 +20,7 @@
         <div class="ticket-book-1">
             <div class="am-g">
                 <form id="form-book" class="am-form" onsubmit="return false">
-                    <div class="am-u-lg-12">
+                    <div class="col-lg-12">
                         <div class="am-form-group">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="am-u-lg-12">
+                    <div class="col-lg-12">
                     <div class="am-form-group">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-phone am-icon-fw"></i></span>

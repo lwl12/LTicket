@@ -134,9 +134,9 @@ class Main extends CI_Controller
         $data['add_css'] = array();
         $data['add_js'] = array('login.js');
         $data['logged'] = $this->ion_auth->logged_in();
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('main/login');
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function register()
@@ -149,8 +149,8 @@ class Main extends CI_Controller
         $data['add_js'] = array('register.js');
         $data['logged'] = false;
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('main/register');
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 }

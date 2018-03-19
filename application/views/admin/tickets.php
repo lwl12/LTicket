@@ -7,14 +7,14 @@
     <h2 class="text-center">票务管理</h2>
 
     <div class="am-g">
-        <div class="am-u-lg-3">
+        <div class="col-lg-3">
             <select id="tickets-search-key" data-am-selected>
                 <option value="id">票号</option>
                 <option value="name">姓名</option>
                 <option value="phone">手机</option>
             </select>
         </div>
-        <div class="am-u-lg-7">
+        <div class="col-lg-7">
             <div class="am-input-group">
                 <input id="tickets-search-content" type="text" class="am-form-field">
                 <span class="am-input-group-btn">
@@ -22,7 +22,7 @@
                 </span>
             </div>
         </div>
-        <div class="am-u-lg-2">
+        <div class="col-lg-2">
             <button id="sendTicket" class="am-btn am-btn-primary">发门票</button>
         </div>
     </div>
