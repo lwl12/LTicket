@@ -4,7 +4,7 @@
 </ol>
 
 <div class="lwl-content">
-    <h2 class="am-text-center">找回密码 / 激活账号</h2>
+    <h2 class="text-center">找回密码 / 激活账号</h2>
     <div class="am-g">
         <?php echo form_open('/user/can_not_login', 'id="form-forgot" class="am-form" onsubmit="return false"'); ?>
             <fieldset>

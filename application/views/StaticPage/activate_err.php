@@ -3,8 +3,8 @@
 </ol>
 
 <div class="lwl-content">
-    <h2 class="am-text-center">激活失败...</h2>
-    <p class="am-text-center">
+    <h2 class="text-center">激活失败...</h2>
+    <p class="text-center">
         请联系管理员处理！
     </p>
 </div>

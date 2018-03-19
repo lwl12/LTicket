@@ -5,7 +5,7 @@
 </ol>
 
 <div class="lwl-content">
-    <h2 class="am-text-center">重设密码</h2>
+    <h2 class="text-center">重设密码</h2>
     <div class="am-g">
         <form id="form-reset" class="am-form" onsubmit="return false">
             <?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>

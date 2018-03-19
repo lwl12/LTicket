@@ -4,8 +4,8 @@
 </ol>
 
 <div class="lwl-content" style="margin-top:1em">
-    <h2 class="am-text-center"></h2>
-    <p class="am-text-center">
+    <h2 class="text-center"></h2>
+    <p class="text-center">
         总用户数：<span id="user-num"> <?php echo $data['user_num'] ?> </span>
         <br>
         已激活用户数：<span id="active-user-num"> <?php echo $data['active_user_num'] ?> </span>

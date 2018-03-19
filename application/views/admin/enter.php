@@ -4,7 +4,7 @@
 </ol>
 
 <div class="lwl-content">
-    <h2 class="am-text-center">入场检票</h2>
+    <h2 class="text-center">入场检票</h2>
     <div class="am-input-group">
         <input type="number" id="t_num" class="am-form-field" placeholder="七位数字" oninput="if(value.length>7)value=value.slice(0,7)">
         <span class="am-input-group-btn">
@@ -23,7 +23,7 @@
 
     <hr>
 
-    <h4 class="am-text-center">扫描二维码</h4>
+    <h4 class="text-center">扫描二维码</h4>
     <video id="preview" class="am-center" style="max-width:100%;max-height:400px"></video>
     <div id="switch-cam" style="text-align:center"></div>
 

@@ -8,6 +8,10 @@ body {
 	background-color: #294A85 !important;
 }
 
+.bs-center {
+	display: block;
+	margin: auto;
+}
 .admin-main {
 	padding-bottom: 20px;
 }

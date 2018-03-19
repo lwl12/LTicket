@@ -4,7 +4,7 @@
 </ol>
 
 <div class="lwl-content" style="margin-top:1em">
-    <h2 class="am-text-center">票务管理</h2>
+    <h2 class="text-center">票务管理</h2>
 
     <div class="am-g">
         <div class="am-u-lg-3">

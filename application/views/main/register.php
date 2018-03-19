@@ -7,12 +7,12 @@
 </ol>
 
 <div class="lwl-content">
-    <h2 class="am-text-center">注册账号</h2>
+    <h2 class="text-center">注册账号</h2>
 
-    <div class="am-alert am-alert-warning am-alert-icon-lg" id="error-disp" style="display: none;">
+    <div class="alert alert-warning alert-icon-lg" id="error-disp" style="display: none;">
     <button type="button" class="am-close">×</button>
     <span class="am-icon-exclamation-circle"></span>
-    <div class="am-alert-bd">
+    <div class="alert-bd">
       <h3>注册过程遇到了问题</h3>
       <div id="error-desc"></div>
     </div>

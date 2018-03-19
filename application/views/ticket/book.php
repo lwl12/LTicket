@@ -4,10 +4,10 @@
 </ol>
 
 <div class="lwl-content">
-    <h2 class="am-text-center">完善信息</h2>
+    <h2 class="text-center">完善信息</h2>
 
     <div class="login-info-form am-center" style="max-width:640px;margin-bottom:1rem">
-        <div class="am-alert am-alert-warning" style="margin:0 0.625rem 1em 0.625rem">
+        <div class="alert alert-warning" style="margin:0 0.625rem 1em 0.625rem">
         <p><small>
             1. 请确保所填写的信息真实准确，一旦提交，无法修改；
             <br>

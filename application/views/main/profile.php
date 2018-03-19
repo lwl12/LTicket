@@ -5,7 +5,7 @@
 <div class="lwl-content">
     <img class="am-img-thumbnail am-circle am-center" src="<?php echo '/api/gravatar/'.$user['email']; ?>" width="140" height="140" />
 
-    <p class="am-text-center">
+    <p class="text-center">
         用户名：<?php echo $user['username']; ?>
         <br>
         邮箱：<?php echo $user['email']; ?>

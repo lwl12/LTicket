@@ -31,7 +31,7 @@
 
 
 
-	<div style="margin-top:2em">
+	<div style="margin-top:2em;">
 		<p class="text-center"><b>今日门票剩余：</b></p>
 		<div class="progress" style="margin-bottom:0.5rem; height: 20px;">
 			<div class="progress-bar bg-info" role="progressbar" style="width: <?=$remainPercent?>%" aria-valuenow="<?=$remainPercent?>" aria-valuemin="0" aria-valuemax="100">
