@@ -62,7 +62,7 @@ class Main extends CI_Controller
 
         $bookedNum = $this->Ticket_model->bookedNum($data['user']['id'], 1);
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
 
         date_default_timezone_set("Asia/Shanghai");
         $now = time();
@@ -80,7 +80,7 @@ class Main extends CI_Controller
             $this->load->view('ticket/book');
         }
 
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function profile()

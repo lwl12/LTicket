@@ -44,42 +44,42 @@
 </div>
 <![endif]-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="topnav">
-    <a class="navbar-brand" href="#">
-    <!-- <img src="assets/i/logo.png" width="125" height="292" alt=""> -->
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"  id="topnav">
+  <a class="navbar-brand" href="/"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <?php if($logged): ?>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item <?php if($this->router->fetch_method() === 'index') echo 'active'; ?>">
-        <a class="nav-link" href="/">首页</a>
-      </li>
-      <li class="nav-item <?php if($this->router->fetch_method() === 'profile') echo 'active'; ?>">
-        <a class="nav-link" href="/main/profile">个人中心</a>
-      </li>
-      <li class="nav-item <?php if($this->router->fetch_method() === 'myTicket') echo 'active'; ?>">
-        <a class="nav-link" href="/main/myTicket">我的邀请函</a>
-      </li>
-       <?php if($user['admin']): ?>
-      <li class="nav-item dropdown <?php if($this->router->fetch_class() === 'Admin') echo 'active'; ?>">
-        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          管理面板
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item <?php if($this->router->fetch_method() === 'users') echo 'active'; ?>" href="/admin/users">用户管理</a>
-          <a class="dropdown-item <?php if($this->router->fetch_method() === 'tickets') echo 'active'; ?>" href="/admin/tickets">票务管理</a>
-          <a class="dropdown-item <?php if($this->router->fetch_method() === 'enter') echo 'active'; ?>" href="/admin/enter">入场检票</a>
-          <a class="dropdown-item <?php if($this->router->fetch_method() === 'data') echo 'active'; ?>" href="/admin/data">实时数据</a>
-        </div>
-      </li>
-      <?php endif; ?>
-    </ul>
-  </div>
-<?php endif; ?>
-</nav>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <?php if($logged): ?>
+        <li class="nav-item <?php if($this->router->fetch_method() === 'index') echo 'active'; ?>">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item <?php if($this->router->fetch_method() === 'profile') echo 'active'; ?>">
+          <a class="nav-link" href="/main/profile">个人中心</a>
+        </li>
+        <li class="nav-item <?php if($this->router->fetch_method() === 'myTicket') echo 'active'; ?>">
+          <a class="nav-link" href="/main/myTicket">我的邀请函</a>
+        </li>
+        <?php if($user['admin']): ?>
+       <li class="nav-item dropdown <?php if($this->router->fetch_class() === 'Admin') echo 'active'; ?>">
+         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           管理面板
+         </a>
+         <div class="dropdown-menu">
+           <a class="dropdown-item <?php if($this->router->fetch_method() === 'users') echo 'active'; ?>" href="/admin/users">用户管理</a>
+           <a class="dropdown-item <?php if($this->router->fetch_method() === 'tickets') echo 'active'; ?>" href="/admin/tickets">票务管理</a>
+           <a class="dropdown-item <?php if($this->router->fetch_method() === 'enter') echo 'active'; ?>" href="/admin/enter">入场检票</a>
+           <a class="dropdown-item <?php if($this->router->fetch_method() === 'data') echo 'active'; ?>" href="/admin/data">实时数据</a>
+         </div>
+       </li>
+       <?php endif; ?>
+    </ul>
+    <span class="navbar-text mr-2">你好，<?=$user['username']?></span>
+    <a id="a-logout" href="javascript:;"><button class="btn btn-outline-warning my-2 my-sm-0 my-lg-0" type="text">退出</button></a>
+    <?php endif; ?>
+  </div>
+</nav>
 
 <div class="container">
