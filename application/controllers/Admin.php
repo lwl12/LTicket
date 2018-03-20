@@ -36,9 +36,9 @@ class Admin extends CI_Controller
         $data['logged'] = $this->ion_auth->logged_in();
         $data['user'] = $this->User_model->userinfo();
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('admin/enter', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function users($uid = 0) {
@@ -48,9 +48,9 @@ class Admin extends CI_Controller
         $data['user'] = $this->User_model->userinfo();
         $data['uid'] = $uid;
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('admin/users', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function tickets($uid = 0) {
@@ -60,9 +60,9 @@ class Admin extends CI_Controller
         $data['user'] = $this->User_model->userinfo();
         $data['uid'] = $uid;
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('admin/tickets', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     public function data() {
@@ -72,9 +72,9 @@ class Admin extends CI_Controller
         $data['user'] = $this->User_model->userinfo();
         $data['data'] = $this->Admin_model->getData();
 
-        $this->load->view('global/header', $data);
+        $this->load->view('universal/header', $data);
         $this->load->view('admin/data', $data);
-        $this->load->view('global/footer', $data);
+        $this->load->view('universal/footer', $data);
     }
 
     //apis

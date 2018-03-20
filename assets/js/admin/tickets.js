@@ -32,7 +32,7 @@ function do_search(all,uid) {
             } else {
                 text = '';
                 for(var i=0;i<response.length;i++) {
-                    text += '<tr id="'+ response[i].id +'"> <td>'+ addZero(response[i].id, 4) +'</td> <td>'+ response[i].name +'</td> <td><button class="am-btn am-btn-primary am-btn-xs tickets-edit">修改信息</button> <a href="/admin/users/'+ response[i].uid +'" class="am-btn am-btn-primary am-btn-xs users-find-ticket">查该用户</a> </tr>';
+                    text += '<tr id="'+ response[i].id +'"> <td>'+ addZero(response[i].id, 4) +'</td> <td>'+ response[i].name +'</td> <td><button class="btn btn-outline-primary btn-xs tickets-edit">修改信息</button> <a href="/admin/users/'+ response[i].uid +'" class="btn btn-outline-primary btn-xs users-find-ticket">查该用户</a> </tr>';
                 }
                 $('#tickets-tbody').html(text);
                 bind_all();
@@ -79,30 +79,29 @@ function ticket_edit(id) {
             if (response.status == -1) $("#edit-status").get(0).selectedIndex = 2;
             $("#edit-status").trigger('changed.selected.amui');
 
-            $('#edit-modal').modal({
-                relatedTarget: this,
-                onConfirm: function (e) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/admin/api_ticket_update",
-                        data: {
-                            'id': editing_ticket,
-                            'name': $('#edit-name').val().trim(),
-                            'phone': $('#edit-phone').val().trim(),
-                            'type': $('#edit-type').val().trim(),
-                            'class': $('#edit-class').val().trim(),
-                            'status': $('#edit-status').val().trim(),
-                            '_SECSRF-T': $("input[name='_SECSRF-T']").val()
-                        },
-                        dataType: "json",
-                        success: function (response) {
-                            alert(response.msg);
-                        },
-                        error: function() {
-                            alert('修改失败，请检查数据是否填写错误');
-                        }
-                    });
-                }
+            $('#edit-modal').modal();
+
+            $('#confirmTED').click(function (e) {
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/api_ticket_update",
+                    data: {
+                        'id': editing_ticket,
+                        'name': $('#edit-name').val().trim(),
+                        'phone': $('#edit-phone').val().trim(),
+                        'type': $('#edit-type').val().trim(),
+                        'class': $('#edit-class').val().trim(),
+                        'status': $('#edit-status').val().trim(),
+                        '_SECSRF-T': $("input[name='_SECSRF-T']").val()
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        alert(response.msg);
+                    },
+                    error: function() {
+                        alert('修改失败，请检查数据是否填写错误');
+                    }
+                });
             });
         }
     });
@@ -115,29 +114,27 @@ if(uid != 0) {
 }
 
 $('#sendTicket').click(function() {
-    $('#add-modal').modal({
-        relatedTarget: this,
-        onConfirm: function (e) {
-            $.ajax({
-                type: "POST",
-                url: "/admin/api_ticket_add",
-                data: {
-                    'email': $('#add-email').val().trim(),
-                    'name': $('#add-name').val().trim(),
-                    'phone': $('#add-phone').val().trim(),
-                    'type': $('#add-type').val().trim(),
-                    'class': $('#add-class').val().trim(),
-                    '_SECSRF-T': $("input[name='_SECSRF-T']").val()
-                },
-                dataType: "json",
-                success: function (response) {
-                    alert(response.msg);
-                },
-                error: function() {
-                    alert('添加失败，请检查数据是否填写错误');
-                }
-            });
-        }
+    $('#add-modal').modal();
+    $('#confirmADT').click(function (e) {
+        $.ajax({
+            type: "POST",
+            url: "/admin/api_ticket_add",
+            data: {
+                'email': $('#add-email').val().trim(),
+                'name': $('#add-name').val().trim(),
+                'phone': $('#add-phone').val().trim(),
+                'type': $('#add-type').val().trim(),
+                'class': $('#add-class').val().trim(),
+                '_SECSRF-T': $("input[name='_SECSRF-T']").val()
+            },
+            dataType: "json",
+            success: function (response) {
+                alert(response.msg);
+            },
+            error: function() {
+                alert('添加失败，请检查数据是否填写错误');
+            }
+        });
     });
 });
 

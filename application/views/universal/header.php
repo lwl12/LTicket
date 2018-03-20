@@ -63,7 +63,7 @@
           <a class="nav-link" href="/main/myTicket">我的邀请函</a>
         </li>
         <?php if($user['admin']): ?>
-       <li class="nav-item dropdown <?php if($this->router->fetch_class() === 'Admin') echo 'active'; ?>">
+       <li class="nav-item dropdown <?php if($this->router->fetch_class() === 'admin') echo 'active'; ?>">
          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            管理面板
          </a>

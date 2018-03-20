@@ -31,7 +31,7 @@ function do_search(all, uid) {
 			} else {
 				text = '';
 				for (var i = 0; i < response.length; i++) {
-					text += '<tr uid="' + response[i].id + '"> <td>' + response[i].username + '</td> <td>' + response[i].email + '</td> <td><button class="am-btn am-btn-primary am-btn-xs users-edit">修改资料</button> <a href="/admin/tickets/' + response[i].id + '" class="am-btn am-btn-primary am-btn-xs users-find-ticket">查名下票</a></td> </tr>';
+					text += '<tr uid="' + response[i].id + '"> <td>' + response[i].username + '</td> <td>' + response[i].email + '</td> <td><button class="btn btn-outline-primary btn-xs users-edit">修改资料</button> <a href="/admin/tickets/' + response[i].id + '" class="btn btn-outline-primary btn-xs users-find-ticket">查名下票</a></td> </tr>';
 				}
 				$('#users-tbody').html(text);
 				bind_all();
@@ -65,17 +65,32 @@ function user_edit(id) {
 			$('#edit-username').val(response.username);
 			$('#edit-phone').val(response.phone);
 
-			$('#edit-modal').modal({
-				relatedTarget: this,
-				onConfirm: function(e) {
+			$('#edit-modal').modal();
+
+			$('#confirmUED').click(function(e) {
+				$.ajax({
+					type: "POST",
+					url: "/admin/api_user_update",
+					data: {
+						'id': editing_user,
+						'email': $('#edit-email').val().trim(),
+						'username': $('#edit-username').val().trim(),
+						'phone': $('#edit-phone').val().trim(),
+						'_SECSRF-T': $("input[name='_SECSRF-T']").val()
+					},
+					dataType: "json",
+					success: function(response) {
+						alert(response.msg);
+					}
+				});
+
+				if ($('#edit-newpw').val().trim() != '') {
 					$.ajax({
 						type: "POST",
-						url: "/admin/api_user_update",
+						url: "/admin/api_user_changepw",
 						data: {
 							'id': editing_user,
-							'email': $('#edit-email').val().trim(),
-							'username': $('#edit-username').val().trim(),
-							'phone': $('#edit-phone').val().trim(),
+							'new_pw': $('#edit-newpw').val().trim(),
 							'_SECSRF-T': $("input[name='_SECSRF-T']").val()
 						},
 						dataType: "json",
@@ -83,22 +98,6 @@ function user_edit(id) {
 							alert(response.msg);
 						}
 					});
-
-					if ($('#edit-newpw').val().trim() != '') {
-						$.ajax({
-							type: "POST",
-							url: "/admin/api_user_changepw",
-							data: {
-								'id': editing_user,
-								'new_pw': $('#edit-newpw').val().trim(),
-								'_SECSRF-T': $("input[name='_SECSRF-T']").val()
-							},
-							dataType: "json",
-							success: function(response) {
-								alert(response.msg);
-							}
-						});
-					}
 				}
 			});
 		}
