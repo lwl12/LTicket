@@ -83,7 +83,6 @@ $config['salt_prefix']    = version_compare(PHP_VERSION, '5.3.7', '<') ? '$2a$' 
  | appropriately. If this variable set to 0, there is no maximum.
  */
 $config['site_title']                 = "LTicket";       // Site Title, example.com
-$config['admin_email']                = "ticket-noreply@lwl.moe"; // Admin Email, admin@example.com
 $config['default_group']              = 'members';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name
 $config['identity']                   = 'email';             // You can use any unique column in your table as identity column. The values in this column, alongside password, will be used for login purposes
@@ -184,3 +183,7 @@ $config['message_start_delimiter'] = '<p>'; 	// Message start delimiter
 $config['message_end_delimiter']   = '</p>'; 	// Message end delimiter
 $config['error_start_delimiter']   = '<p>';		// Error message start delimiter
 $config['error_end_delimiter']     = '</p>';	// Error message end delimiter
+
+$config['admin_email'] = '';
+$config['admin_email'] = '';
+$config['admin_email'] = '';

@@ -3,47 +3,51 @@
 
 <h4>&gt; 我们需要一些信息来初始化运行环境...</h4>
 <hr>
-
+<?php echo form_open('/setup/install', 'id="form-ins"'); ?>
 <div class="alert alert-secondary" role="alert">基本信息</div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text">管理员邮箱</span>
   </div>
-  <input type="email" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1">
+  <input required type="email" class="form-control" placeholder="" name="email" aria-describedby="basic-addon1">
 </div>
 
 <div class="input-group mb-3">
      <div class="input-group-prepend">
     <span class="input-group-text">管理员密码</span>
     </div>
-  <input type="password" class="form-control" placeholder="不少于 6 位" aria-label="不少于 6 位" aria-describedby="basic-addon2">
+  <input required type="password" class="form-control" placeholder="不少于 6 位" name="password" aria-describedby="basic-addon2">
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text">数据库地址</span>
   </div>
-  <input type="text" class="form-control" placeholder="" aria-label="dbhost">
+  <input required type="text" class="form-control" placeholder="" name="dbhost">
 
     <div class="input-group-prepend">
       <span class="input-group-text">端口</span>
     </div>
-    <input type="text" class="form-control" placeholder="" aria-label="dbport">
+    <input required type="number" class="form-control" placeholder="" name="dbport" value="3306">
 </div>
 
 <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">数据库用户</span>
+    </div>
+    <input required type="text" class="form-control" placeholder="" name="dbuser">
   <div class="input-group-prepend">
     <span class="input-group-text">数据库密码</span>
   </div>
-  <input type="password" class="form-control" autocomplete="off" aria-label="dbpass">
+  <input type="password" class="form-control" autocomplete="off" name="dbpass">
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text">数据库名称</span>
   </div>
-  <input type="text" class="form-control" placeholder="" aria-label="dbname">
+  <input required type="text" class="form-control" placeholder="" name="dbname" value="lticket">
 </div>
 
 <hr>
@@ -52,42 +56,41 @@
   <div class="input-group-prepend">
     <span class="input-group-text">服务器地址</span>
   </div>
-  <input type="text" class="form-control" placeholder="" aria-label="mxhost">
+  <input required type="text" class="form-control" placeholder="" name="mxhost">
 
   <div class="input-group-prepend">
     <span class="input-group-text">端口</span>
   </div>
-  <input type="text" class="form-control" value="465" aria-label="mxport">
+  <input required type="text" class="form-control" value="465" name="mxport">
 </div>
 
 <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">邮箱用户名</span>
     </div>
-    <input type="text" class="form-control" placeholder="" aria-label="mxuser">
+    <input required type="text" class="form-control" placeholder="" name="mxuser">
   <div class="input-group-prepend">
     <span class="input-group-text">密码</span>
   </div>
-  <input type="password" class="form-control" autocomplete="off" aria-label="mxpass">
+  <input required type="password" class="form-control" autocomplete="off" name="mxpass">
 </div>
 
 <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text">发信人地址</span>
     </div>
-    <input type="text" class="form-control" placeholder="一般与用户名一致" aria-label="mxuser">
+    <input required type="text" class="form-control" placeholder="一般与用户名一致" name="mxname">
   <div class="input-group-prepend">
     <span class="input-group-text">加密</span>
   </div>
-  <select class="custom-select" id="mxsec">
+  <select class="custom-select" name="mxsec">
     <option selected value="SSL">SSL</option>
     <option value="TLS">START TLS</option>
     <option value="NONE">Plain</option>
   </select>
 </div>
 
-<input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" />
-
-<button type="button" class="btn btn-lg btn-outline-success btn-block" style="display: block; margin-top: 2em; margin-bottom: 1em;">开始安装</button>
+<button type="submit" class="btn btn-lg btn-outline-success btn-block" style="display: block; margin-top: 2em; margin-bottom: 1em;">开始安装</button>
+</form>
 
 </div>
