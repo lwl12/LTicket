@@ -34,7 +34,7 @@
 	</div>
 
 	<div style="margin-top:2em; text-align: center;" class="">
-		<a href="/main/book"><button type="button" class="btn btn-outline-success btn-lg mr-5">立即预约</button></a>
+		<a href="/main/book"><button type="button" class="btn btn-outline-success btn-lg">立即预约</button></a>
 		<a href="/main/myTicket"><button type="button" class="btn btn-outline-info btn-lg">我的邀请函</button></a>
 	</div>
 
