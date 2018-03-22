@@ -11,7 +11,7 @@
     <p class="text-center">
         总用户数：<span id="user-num"> <?=$data['user_num']?> </span>
         <br>
-        已激活用户数：<span id="active-user-num"> <?php=$data['active_user_num']?> </span>
+        已激活用户数：<span id="active-user-num"> <?=$data['active_user_num']?> </span>
         <br><br>
         普通门票数：<span id="normal-ticket-num"> <?=$data['normal_ticket_num']?> </span>
         <br>
