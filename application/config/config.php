@@ -21,7 +21,7 @@ $config['enableLog'] = TRUE;
 |
 | If it is not set, then CodeIgniter will try guess the protocol and path
 | your installation, but due to security concerns the hostname will be set
-| to $_SERVER['SERVER_ADDR'] if available, or localhost otherwise.
+| to  if available, or localhost otherwise.
 | The auto-detection mechanism exists only for convenience during
 | development and MUST NOT be used in production!
 |
@@ -29,7 +29,7 @@ $config['enableLog'] = TRUE;
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://lticket.local/';
+
 
 /*
 |--------------------------------------------------------------------------
@@ -527,3 +527,5 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+$config['base_url'] = 'http://lticket.local/';

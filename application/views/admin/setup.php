@@ -3,7 +3,9 @@
 
 <h4>&gt; 我们需要一些信息来初始化运行环境...</h4>
 <hr>
-<?php echo form_open('/setup/install', 'id="form-ins"'); ?>
+<form action="/setup/install" id="form-ins" method="post" accept-charset="utf-8">
+    <?php $csrf = array( 'name' => $this->security->get_csrf_token_name(), 'hash' => $this->security->get_csrf_hash() );?>
+    <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
 <div class="alert alert-secondary" role="alert">基本信息</div>
 
 <div class="input-group mb-3">
@@ -84,9 +86,9 @@
     <span class="input-group-text">加密</span>
   </div>
   <select class="custom-select" name="mxsec">
-    <option selected value="SSL">SSL</option>
-    <option value="TLS">START TLS</option>
-    <option value="NONE">Plain</option>
+    <option selected value="ssl">SSL</option>
+    <option value="tls">START TLS</option>
+    <option value="">Plain</option>
   </select>
 </div>
 

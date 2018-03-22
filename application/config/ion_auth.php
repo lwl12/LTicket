@@ -187,3 +187,4 @@ $config['error_end_delimiter']     = '</p>';	// Error message end delimiter
 $config['admin_email'] = '';
 $config['admin_email'] = '';
 $config['admin_email'] = '';
+$config['admin_email'] = 'ticket-noreply@lwl.moe';

@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
-    <base href='<?php echo base_url();?>' />
+    <?php
+    if($this->router->fetch_class() === 'setup'){
+        $site_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]/";
+     } else {
+         $site_url = base_url();
+     }
+    ?>
+    <base href='<?=$site_url?>' />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="edge">
     <meta name="renderer" content="webkit">
