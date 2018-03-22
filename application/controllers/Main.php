@@ -7,6 +7,7 @@ class Main extends CI_Controller
         parent::__construct();
         $this->load->model('User_model');
         $this->load->model('Ticket_model');
+        $this->load->model('Admin_model');
         $this->load->library('gravatar');
         $this->load->library('ion_auth');
         $this->load->helper('form');
@@ -23,12 +24,12 @@ class Main extends CI_Controller
         $data['logged'] = $this->ion_auth->logged_in();
         $data['user'] = $this->User_model->userinfo();
 
-        $data['startTime'] = $this->config->item('startTime');
-        $data['endTime'] = $this->config->item('endTime');
-        $data['num'] = $this->config->item('maxNum');
+        $data['startTime'] = implode(" ", explode("T",$this->Admin_model->getSetting('startdate')));
+        $data['endTime'] = implode(" ", explode("T",$this->Admin_model->getSetting('finaldate')));
+        $data['num'] = $this->Admin_model->getSetting('pertnum');
 
-        $remain = $this->config->item('total') - $this->Ticket_model->count();
-        $data['remainPercent'] = round((double)$remain / $this->config->item('total'), 4) * 100;
+        $remain = $this->Admin_model->getSetting('alltnum') - $this->Ticket_model->count();
+        $data['remainPercent'] = round((double)$remain / $this->Admin_model->getSetting('alltnum'), 4) * 100;
 
         $this->load->view('universal/header', $data);
         $this->load->view('main/main', $data);
@@ -67,14 +68,14 @@ class Main extends CI_Controller
         date_default_timezone_set("Asia/Shanghai");
         $now = time();
         $startTime=$endTime=$now;
-        $startTime = strtotime($this->config->item('startTime'));
-        $endTime = strtotime($this->config->item('endTime'));
+        $startTime = strtotime($this->Admin_model->getSetting('startdate'));
+        $endTime = strtotime($this->Admin_model->getSetting('finaldate'));
 
-        if ($bookedNum >= $this->config->item('maxNum')) {
+        if ($bookedNum >= $this->Admin_model->getSetting('pertnum')) {
             $this->load->view('StaticPage/booked');
         } elseif ($now<$startTime || $now>$endTime) {
             $this->load->view('StaticPage/book_time_err');
-        } elseif ($this->config->item('total') - $this->Ticket_model->count() <= 0) {
+        } elseif ($this->Admin_model->getSetting('alltnum') - $this->Ticket_model->count() <= 0) {
             $this->load->view('StaticPage/book_no_remain');
         } else {
             $this->load->view('ticket/book');

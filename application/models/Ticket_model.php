@@ -5,6 +5,7 @@ class Ticket_model extends CI_Model {
         $this->load->library('ion_auth');
         $this->load->library('user_agent');
         $this->load->model('Log_model');
+        $this->load->model('Admin_model');
         $this->load->database();
     }
 
@@ -21,9 +22,9 @@ class Ticket_model extends CI_Model {
         $startTime=$endTime=$now;
         $Num=0;
 
-            $startTime = strtotime($this->config->item('startTime'));
-            $endTime = strtotime($this->config->item('endTime'));
-            $Num = $this->config->item('maxNum');
+            $startTime = strtotime($this->Admin_model->getSetting('startdate'));
+            $endTime = strtotime($this->Admin_model->getSetting('finaldate'));
+            $Num = $this->Admin_model->getSetting('pertnum');
 
         if ($now<$startTime || $now>$endTime) {
             $returndata = array(
@@ -37,7 +38,7 @@ class Ticket_model extends CI_Model {
         $this->db->where('type', 1);
         $total = $this->db->count_all_results('ticket');
 
-        $remain = $this->config->item('total') - $this->count();
+        $remain = $this->Admin_model->getSetting('alltnum') - $this->count();
         if ($remain <= 0) {
             $returndata = array(
                 'status' => -2,

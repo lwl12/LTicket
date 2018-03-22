@@ -4,10 +4,6 @@
 	</ol>
 </nav>
 
-<div class="alert alert-info" role="alert">
-	<i class="fa fa-check-circle-o" aria-hidden="true"></i> 喵喵喵，这里是系统通知~
-</div>
-
 <div class="lwl-content">
 	<p class="text-center">
 		你好，
@@ -21,8 +17,8 @@
 			</div>
 			<div class="text-center">
 				<b>您可在以下时间段内进行门票预约</b> <br>
-				<span class="badge badge-pill badge-success">自</span>
-				<?=$startTime?> <br> <span class="badge badge-pill badge-danger">至</span><?=$endTime?>
+				<span class="badge badge-pill badge-success">自</span><?=$startTime?> <br>
+				<span class="badge badge-pill badge-danger">至</span><?=$endTime?>
 			</div>
 	</div>
 

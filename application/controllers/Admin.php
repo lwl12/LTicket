@@ -30,6 +30,17 @@ class Admin extends CI_Controller
         }
     }
 
+    public function setting() {
+        $data['add_css'] = array();
+        $data['add_js'] = array('admin/setting.js');
+        $data['logged'] = $this->ion_auth->logged_in();
+        $data['user'] = $this->User_model->userinfo();
+
+        $this->load->view('universal/header', $data);
+        $this->load->view('admin/setting', $data);
+        $this->load->view('universal/footer', $data);
+    }
+
     public function enter() {
         $data['add_css'] = array('notie.min.css');
         $data['add_js'] = array('notie.min.js', 'admin/instascan.min.js', 'admin/enter.js');
@@ -147,5 +158,29 @@ class Admin extends CI_Controller
 
     public function api_get_data() {
         echo json_encode($this->Admin_model->getData());
+    }
+
+    public function api_setting_update() {
+        $data["startdate"] = $this->input->post('startdate');
+        $data["finaldate"] = $this->input->post('finaldate');
+        $data["alltnum"] = $this->input->post('alltnum');
+        $data["pertnum"] = $this->input->post('pertnum');
+
+        foreach ($data as $key => $value) {
+            if (!$this->Admin_model->updateSetting($key, $value)){
+                $returndata = array(
+                    'status' => -1,
+                    'msg' => '设置修改失败'
+                );
+                echo json_encode($returndata);
+                return;
+            }
+        }
+
+        $returndata = array(
+            'status' => 1,
+            'msg' => '设置修改成功'
+        );
+        echo json_encode($returndata);
     }
 }

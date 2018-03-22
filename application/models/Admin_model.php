@@ -85,6 +85,14 @@ class Admin_model extends CI_Model {
         };
     }
 
+    public function updateSetting($name, $value) {
+        return $this->db->where('name', $name)->update('lt_options', array('value' => $value));
+    }
+
+    public function getSetting($name) {
+        return $this->db->where('name', $name)->get('lt_options')->first_row('array')['value'];
+    }
+
     public function user_change_passwd($id ,$new_pw) {
         $arr = Array(
             'password' => $new_pw

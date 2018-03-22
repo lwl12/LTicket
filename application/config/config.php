@@ -1,10 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['startTime'] = '2017-11-10 00:00:00';
-$config['endTime'] = '2018-12-30 00:00:00';
-$config['maxNum'] = 10;
-$config['total'] = 100;
 $config['enableLog'] = TRUE;
 
 /*
@@ -527,5 +523,3 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
-
-$config['base_url'] = 'http://lticket.local/';

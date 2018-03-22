@@ -78,6 +78,7 @@
            <a class="dropdown-item <?php if($this->router->fetch_method() === 'users') echo 'active'; ?>" href="/admin/users">用户管理</a>
            <a class="dropdown-item <?php if($this->router->fetch_method() === 'tickets') echo 'active'; ?>" href="/admin/tickets">票务管理</a>
            <a class="dropdown-item <?php if($this->router->fetch_method() === 'enter') echo 'active'; ?>" href="/admin/enter">入场检票</a>
+           <a class="dropdown-item <?php if($this->router->fetch_method() === 'setting') echo 'active'; ?>" href="/admin/setting">参数设置</a>
            <a class="dropdown-item <?php if($this->router->fetch_method() === 'data') echo 'active'; ?>" href="/admin/data">实时数据</a>
          </div>
        </li>
