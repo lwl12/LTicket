@@ -28,6 +28,8 @@ class Main extends CI_Controller
         $data['endTime'] = implode(" ", explode("T",$this->Admin_model->getSetting('finaldate')));
         $data['num'] = $this->Admin_model->getSetting('pertnum');
 
+        $data["alltnum"] = $this->Admin_model->getSetting('alltnum');
+
         $remain = $this->Admin_model->getSetting('alltnum') - $this->Ticket_model->count();
         $data['remainPercent'] = round((double)$remain / $this->Admin_model->getSetting('alltnum'), 4) * 100;
 

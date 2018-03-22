@@ -13,7 +13,7 @@
 
 	<div class="mx-auto">
 			<div class="text-center mb-3">
-				<b>门票发放计划</b><br> 29 日 22:23 - 666 张
+				<b>门票发放计划</b><br> 总计发放门票 <?=$alltnum?> 张
 			</div>
 			<div class="text-center">
 				<b>您可在以下时间段内进行门票预约</b> <br>
