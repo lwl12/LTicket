@@ -379,13 +379,13 @@ class Auth extends CI_Controller
 		{
 			// redirect them to the auth page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("staticpage/activate_succ", 'refresh');
+			redirect("StaticPage/activate_succ", 'refresh');
 		}
 		else
 		{
 			// redirect them to the forgot password page
 			$this->session->set_flashdata('message', $this->ion_auth->errors());
-			redirect("staticpage/activate_err", 'refresh');
+			redirect("StaticPage/activate_err", 'refresh');
 		}
 	}
 
