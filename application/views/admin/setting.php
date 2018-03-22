@@ -10,21 +10,21 @@
     <h2 class="text-center">参数设置</h2>
 	<div class="input-group mt-3">
 		<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-calendar-o fa-fw" aria-hidden="true"></i>&nbsp;预约开始时间</span></div>
-		<input id="input-startdate" type="datetime-local" class="form-control" value="2018-03-22T00:00" required>
+		<input id="input-startdate" type="datetime-local" class="form-control" value="<?=$startdate?>" required>
 	</div>
 	<div class="input-group mt-2">
 		<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp;预约结束时间</span></div>
-		<input id="input-finaldate" type="datetime-local" class="form-control" value="2018-03-23T00:00" required>
+		<input id="input-finaldate" type="datetime-local" class="form-control" value="<?=$finaldate?>" required>
 	</div>
 
 	<div class="input-group mt-2">
 		<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-ticket fa-fw" aria-hidden="true"></i>&nbsp;总计发行票数</span></div>
-		<input id="input-alltnum" type="number" class="form-control" value="2000" required>
+		<input id="input-alltnum" type="number" class="form-control" value="<?=$alltnum?>" required>
 	</div>
 
 	<div class="input-group mt-2">
 		<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-arrow-circle-up fa-fw" aria-hidden="true"></i>&nbsp;单人持票上限</span></div>
-		<input id="input-pertnum" type="number" class="form-control" value="2" required>
+		<input id="input-pertnum" type="number" class="form-control" value="<?=$pertnum?>" required>
 	</div>
 
 	<button type="button" id="confirmSED" class="btn btn-outline-primary btn-lg btn-block mt-4">确定</button>

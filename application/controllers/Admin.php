@@ -36,6 +36,11 @@ class Admin extends CI_Controller
         $data['logged'] = $this->ion_auth->logged_in();
         $data['user'] = $this->User_model->userinfo();
 
+        $data["startdate"] = $this->Admin_model->getSetting('startdate');
+        $data["finaldate"] = $this->Admin_model->getSetting('finaldate');
+        $data["alltnum"] = $this->Admin_model->getSetting('alltnum');
+        $data["pertnum"] = $this->Admin_model->getSetting('pertnum');
+
         $this->load->view('universal/header', $data);
         $this->load->view('admin/setting', $data);
         $this->load->view('universal/footer', $data);
